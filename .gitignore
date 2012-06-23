@@ -1,7 +1,7 @@
 /.pygments-cache
 /.sass-cache
 /public
-/Gemfie.lock
+/Gemfile.lock
 /_deploy
 /sass
 /source

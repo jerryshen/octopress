@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'http://ruby.taobao.org'
 
 group :development do
   gem 'rake'
@@ -7,7 +7,7 @@ group :development do
   gem 'rdiscount'     # Markdown
   gem 'pygments.rb'     # Highlight
   # gem 'RedCloth'      # Textile
-  gem 'haml'
+  # gem 'haml'
   gem 'compass', :git => 'git://github.com/chriseppstein/compass', :branch => 'master'
   # gem 'oily_png'      # Native mixin to speed up ChunkyPNG
   gem 'rubypants'
