@@ -1,0 +1,11 @@
+{% capture tags_len %}{% if post %}{{ post.tags | size }}{% else %}{{ page.tags | size }}{% endif %}{% endcapture %}
+{% unless tags_len == '0' %}
+<span class="tags">
+  {% if tags_len == '1' %}{{ 'Tag:' }}{% else %}{{ 'Tags:' }}{% endif %}
+  {% if post %}
+    {{ post.tags | tag_links }}
+  {% else %}
+    {{ page.tags | tag_links }}
+  {% endif %}
+</span>
+{% endunless %}

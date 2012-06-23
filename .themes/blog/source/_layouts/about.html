@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+<section class="main-wrap clearfix">
+  <header>
+    <h1 class="page-title">{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</h1>
+  </header>
+
+  <article>
+    <div class="entry-content typo">{{ content }}</div>
+  </article>
+</section>

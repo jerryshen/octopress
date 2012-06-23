@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<section class="main-wrap clearfix">
+{% if page.isArchive %}
+
+  {% if page.title %}
+  <header>
+    <h1 class="page-title">{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</h1>
+    {% if page.date %}<p class="meta">{% include post/date.html %}{{ time }}</p>{% endif %}
+    {% if page.categories %}{% include post/categories.html %}{% endif %}
+  </header>
+  {% endif %}
+  {{ content }}
+
+{% else %}
+
+  <article role="article">
+    {% if page.title %}
+    <header>
+      <h1 class="page-title">{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</h1>
+      {% if page.date %}<p class="meta">{% include post/date.html %}{{ time }}</p>{% endif %}
+    </header>
+    {% endif %}
+    <div class="entry-content typo">{{ content }}</div>
+  </article>
+{% endif %}
+
+  <section id="disqus_thread"></section>
+</section>

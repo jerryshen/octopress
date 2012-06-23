@@ -1,0 +1,3 @@
+[submodule ".themes/blog/sass/_base"]
+	path = .themes/blog/sass/_base
+	url = git://github.com/eDoctor/eDr_assets_Sass.git

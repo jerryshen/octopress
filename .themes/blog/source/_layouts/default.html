@@ -1,0 +1,43 @@
+{% capture root_url %}{{ site.root | strip_slash }}{% endcapture %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+  {% capture description %}{% if site.description %}{{ site.description }}{% else %}{{ content | raw_content | strip_html | condense_spaces | truncate:150 }}{% endif %}{% endcapture %}
+  <meta name="description" content="{{ description }}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ root_url }}/stylesheets/screen.css" />
+  {% for css in page.css %}
+  <link rel="stylesheet" href="{{ root_url }}/stylesheets/custom/{{ css }}.css" />{% endfor %}
+  <link rel="alternate" href="{{ site.subscribe_rss }}" type="application/atom+xml" />
+  {% include google-analytics.html %}
+</head>
+
+<body>
+<!--[if IE]>
+html,body{height:100%;overflow:hidden}
+<div class="ie-go-away">My blog does not support the IE!</div>
+<![endif]-->
+
+{% include black-long-straight.html %}
+
+<header class="my-nickname"><em title="{{ site.self_introduction }}">{{ site.author }}</em></header>
+
+{{ content | expand_urls: root_url }}
+
+<footer class="footer">
+  &copy;{{ site.time | date: "%Y" }} {{ site.author }}
+  &nbsp;-&nbsp;
+  Powered by <a href="http://octopress.org" target="_blank">Octopress</a>
+</footer>
+
+{% include social-links.html %}
+
+<script src="{{ root_url }}/javascripts/application.js"></script>
+{% for js in page.js %}
+<script src="{% if site[js] %}{{ site[js] }}{% else %}{{ root_url }}/javascripts/custom/{{ js }}.js{% endif %}"></script>{% endfor %}
+{% include disqus.html %}
+<iframe src="{{ root_url }}/offline-cache.html" style="display:none"></iframe>
+</body>
+</html>

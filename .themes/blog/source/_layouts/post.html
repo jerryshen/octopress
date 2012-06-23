@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<section class="main-wrap clearfix">
+  <article role="article">
+    {% include article.html %}
+    <footer>
+      <p class="meta neighbor clearfix">
+        {% if page.previous.url %}
+          <a href="{{ page.previous.url }}" class="float-l" title="Previous Post: {{ page.previous.title }}">&laquo; {{ page.previous.title }}</a>
+        {% endif %}
+        {% if page.next.url %}
+          <a href="{{ page.next.url }}" class="float-r" title="Next Post: {{ page.next.title }}">{{ page.next.title }} &raquo;</a>
+        {% endif %}
+      </p>
+    </footer>
+  </article>
+
+  {% if site.disqus_short_name and page.comments == true %}
+    <section>
+      <h1>Comments</h1>
+      <div id="disqus_thread" aria-live="polite">{% include post/disqus_thread.html %}</div>
+    </section>
+  {% endif %}
+</section>
